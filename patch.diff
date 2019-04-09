@@ -1,0 +1,382 @@
+From ec07a4ae5bb77c8652e3a864bd41e3565997feb3 Mon Sep 17 00:00:00 2001
+From: MoacirB <moacir-batista-tavares@hotmail.com>
+Date: Wed, 26 Sep 2018 18:17:44 -0300
+Subject: [PATCH] =?UTF-8?q?Controllers,=20Cadastro=20Funcion=C3=A1rio?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ app/controllers/cadastroCliente.js     | 34 +++++++++++++++++++
+ app/controllers/cadastroFuncionario.js | 26 +++++++++++++++
+ app/controllers/cadastroVeiculo.js     | 19 +++++++++++
+ app/controllers/index.js               | 19 +++++++++++
+ app/public/css/cadastroFuncionario.css | 46 ++++++++++++++++++++++++++
+ app/routes/CadastroCliente.js          | 32 +++---------------
+ app/routes/CadastroFuncionario.js      | 27 +++------------
+ app/routes/cadastroveiculo.js          | 20 +++--------
+ app/routes/index.js                    | 16 ++-------
+ app/views/cadastroFuncionario.ejs      |  2 +-
+ config/server.js                       |  1 +
+ 11 files changed, 160 insertions(+), 82 deletions(-)
+ create mode 100644 app/controllers/cadastroCliente.js
+ create mode 100644 app/controllers/cadastroFuncionario.js
+ create mode 100644 app/controllers/cadastroVeiculo.js
+ create mode 100644 app/controllers/index.js
+ create mode 100644 app/public/css/cadastroFuncionario.css
+
+diff --git a/app/controllers/cadastroCliente.js b/app/controllers/cadastroCliente.js
+new file mode 100644
+index 0000000..8eb16e8
+--- /dev/null
++++ b/app/controllers/cadastroCliente.js
+@@ -0,0 +1,34 @@
++module.exports.cadastroCliente = function(app,req,res){
++	res.render('cadastroCliente',{validacao: [], cadastro: []});
++}
++
++module.exports.submit = function(app,req,res){
++	var cliente = req.body;
++		
++		req.assert('nome','Nome inválido').notEmpty();
++		req.assert('cpf','CPF inválido').notEmpty().isLength({min: 14});
++		req.assert('rg','RG inválido').notEmpty().isLength({min: 7});
++		req.assert('dtanas','Data de nascimento inválida').notEmpty().isLength({min: 10});
++		req.assert('telefone1','Telefone inválido').notEmpty().isLength({min: 19});
++		req.assert('telefone2','Telefone inválido').notEmpty().isLength({min: 19});
++		req.assert('endereco','Endereço inválido').notEmpty();
++
++		var erros = req.validationErrors();
++		if(erros){
++			res.render('cadastroCliente',{validacao: erros, cadastro: cliente});
++			return;
++		}
++
++		var connection  = app.config.connection();
++		var clienteModel = app.app.models.clienteModel;
++
++		clienteModel.cadastrar(cliente, connection, function(error, result){
++			res.send('aaa');
++		});
++}
++
++module.exports.busca = function(app,req,res){
++	var connection = app.config.connection();
++			var clienteModel = app.app.models.clienteModel;
++			clienteModel.getCliente(connection,function(error, result){res.render('busca',{cliente: result});});
++}
+\ No newline at end of file
+diff --git a/app/controllers/cadastroFuncionario.js b/app/controllers/cadastroFuncionario.js
+new file mode 100644
+index 0000000..151a413
+--- /dev/null
++++ b/app/controllers/cadastroFuncionario.js
+@@ -0,0 +1,26 @@
++module.exports.cadastroFuncionario = function(app,req,res){
++	res.render('cadastroFuncionario',{validacao: []});
++}
++
++module.exports.submitFuncionario = function(app, req, res){
++	var cadastrar = req.body;
++		
++		req.assert('nome','Inserir nome').notEmpty();
++		req.assert('cpf','Inserir CPF').notEmpty();
++        req.assert('rg','Inserir RG').notEmpty();
++        req.assert('ncarttrab','Inserir Numero da Carteira de Trabalho').notEmpty();
++        req.assert('dataadmi','Inserir Data de Admissão').notEmpty();
++        req.assert('hortrab','Inserir Horario de Trabalho').notEmpty();
++        req.assert('salaraio','Inserir Salário').notEmpty();
++		req.assert('datnas','Inserir data de nascimento').notEmpty();
++		req.assert('telefone1','Inserir Telefone').notEmpty();
++		req.assert('telefone2','Inserir Telefone').notEmpty();
++		req.assert('endereco','Inserir endereço').notEmpty();
++
++		var erros = req.validationErrors();
++		if(erros){
++			res.render('cadastroFuncionario',{validacao: erros});
++			return;
++		}
++		res.render('cliente');
++}
+\ No newline at end of file
+diff --git a/app/controllers/cadastroVeiculo.js b/app/controllers/cadastroVeiculo.js
+new file mode 100644
+index 0000000..8d912c0
+--- /dev/null
++++ b/app/controllers/cadastroVeiculo.js
+@@ -0,0 +1,19 @@
++module.exports.cadastroVeiculo = function(app, req, res){
++	res.render('cadastroveiculo',{validacao: {}});
++}
++
++module.exports.submitVeiculo = function(app, req, res){
++	var cadastrar = req.body;
++		
++		req.assert('placa','Inserir Placa').notEmpty();
++		req.assert('marca','Inserir Marca').notEmpty();
++		req.assert('modelo','Inserir Modelo').notEmpty();
++		req.assert('cor','Inserir Cor').notEmpty();
++
++		var erros = req.validationErrors();
++		if(erros){
++			res.render('cadastroveiculo',{validacao: erros});
++			return;
++		}
++		res.render('veiculos');
++}
+\ No newline at end of file
+diff --git a/app/controllers/index.js b/app/controllers/index.js
+new file mode 100644
+index 0000000..620beb6
+--- /dev/null
++++ b/app/controllers/index.js
+@@ -0,0 +1,19 @@
++module.exports.index = function(app, req, res){
++	res.render('index', { validacao: {}});
++}
++
++module.exports.login = function(app, req, res){
++	var login = req.body;
++
++
++		req.assert('id','Inserir ID').notEmpty();
++		req.assert('senha','Inserir senha').notEmpty();
++
++		var erros = req.validationErrors();
++		if(erros)
++		{
++			res.render('index',{ validacao: erros});
++			return;
++		}
++		res.send(login);
++	}
+\ No newline at end of file
+diff --git a/app/public/css/cadastroFuncionario.css b/app/public/css/cadastroFuncionario.css
+new file mode 100644
+index 0000000..8592eb9
+--- /dev/null
++++ b/app/public/css/cadastroFuncionario.css
+@@ -0,0 +1,46 @@
++*{
++    margin:0;
++    padding:0;
++}
++body{
++    background-color: #808080;
++    font-family: 'Open Sans', sans-serif;
++    text-align: center;
++    margin:0;
++    padding:0;
++}
++div
++{
++    width:70%;
++
++    background-color:#D3D3D3;
++    position:relative;
++    left:15%;
++
++    /*height:100%;*/
++}
++
++#erro
++{
++    color:red;
++    height: 30px;
++}
++h1 {
++    margin-bottom:30px;
++    
++}
++input {
++    display: block;
++    position:relative;
++    left:28%;
++    margin:20px;
++    font-size:16px;
++    width:40%;
++    height:40px;
++    padding-left:10px;
++}
++button{
++    margin:10px;
++    padding:10px;
++    font-size:20px;
++}
+\ No newline at end of file
+diff --git a/app/routes/CadastroCliente.js b/app/routes/CadastroCliente.js
+index a50383f..09a000f 100644
+--- a/app/routes/CadastroCliente.js
++++ b/app/routes/CadastroCliente.js
+@@ -2,38 +2,14 @@
+ module.exports = function(app){
+ 
+ 	app.get('/cadastrocliente',function(req, res){
+-	res.render('cadastroCliente',{validacao: [], cadastro: []});
++		app.app.controllers.cadastroCliente.cadastroCliente(app,req,res);
+ 	});
+ 
+ 	app.post('/submit',function(req,res){
+-		var cliente = req.body;
+-		
+-		req.assert('nome','Nome inválido').notEmpty();
+-		req.assert('cpf','CPF inválido').notEmpty().isLength({min: 14});
+-		req.assert('rg','RG inválido').notEmpty().isLength({min: 7});
+-		req.assert('dtanas','Data de nascimento inválida').notEmpty().isLength({min: 10});
+-		req.assert('telefone1','Telefone inválido').notEmpty().isLength({min: 19});
+-		req.assert('telefone2','Telefone inválido').notEmpty().isLength({min: 19});
+-		req.assert('endereco','Endereço inválido').notEmpty();
+-
+-		var erros = req.validationErrors();
+-		if(erros){
+-			res.render('cadastroCliente',{validacao: erros, cadastro: cliente});
+-			return;
+-		}
+-
+-		var connection  = app.config.connection();
+-		var clienteModel = app.app.models.clienteModel;
+-
+-		clienteModel.cadastrar(cliente, connection, function(error, result){
+-			res.send('aaa');
+-		});
++		app.app.controllers.cadastroCliente.submit(app,req,res);
+ 	});
+ 
+ 		app.get('/busca', function(req, res){
+-			var connection = app.config.connection	();
+-			var clienteModel = app.app.models.clienteModel;
+-			clienteModel.getCliente(connection,function(error, result){res.render('busca',{cliente: result});});
+-		});
+-		
++			app.app.controllers.cadastroCliente.busca(app,req,res);
++	});
+ }
+\ No newline at end of file
+diff --git a/app/routes/CadastroFuncionario.js b/app/routes/CadastroFuncionario.js
+index 2f27ccf..4a02e0b 100644
+--- a/app/routes/CadastroFuncionario.js
++++ b/app/routes/CadastroFuncionario.js
+@@ -1,29 +1,10 @@
+ module.exports = function(app){
+ 
+-	app.get('/cadastrofuncionario',function(req, res){
+-	res.render('cadastrofuncionario',{validacao: {}});
++	app.get('/cadastroFuncionario', function(req, res){
++		app.app.controllers.cadastroFuncionario.cadastroFuncionario(app, req, res);
+ 	});
+ 
+-	app.post('/submit',function(req,res){
+-		var cadastrar = req.body;
+-		
+-		req.assert('nome','Inserir nome').notEmpty();
+-		req.assert('cpf','Inserir CPF').notEmpty();
+-        req.assert('rg','Inserir RG').notEmpty();
+-        req.assert('ncarttrab','Inserir Numero da Carteira de Trabalho').notEmpty();
+-        req.assert('dataadmi','Inserir Data de Admissão').notEmpty();
+-        req.assert('hortrab','Inserir Horario de Trabalho').notEmpty();
+-        req.assert('salaraio','Inserir Salário').notEmpty();
+-		req.assert('datnas','Inserir data de nascimento').notEmpty();
+-		req.assert('telefone1','Inserir Telefone').notEmpty();
+-		req.assert('telefone2','Inserir Telefone').notEmpty();
+-		req.assert('endereco','Inserir endereço').notEmpty();
+-
+-		var erros = req.validationErrors();
+-		if(erros){
+-			res.render('cadastroFuncionario',{validacao: erros});
+-			return;
+-		}
+-		res.render('cliente');
++	app.post('/submitFuncionario',function(req, res){
++		app.app.controllers.cadastroFuncionario.submitFuncionario(app, req, res);
+     });
+ }
+diff --git a/app/routes/cadastroveiculo.js b/app/routes/cadastroveiculo.js
+index 81d476e..2932415 100644
+--- a/app/routes/cadastroveiculo.js
++++ b/app/routes/cadastroveiculo.js
+@@ -1,22 +1,10 @@
+ module.exports = function(app){
+ 
+ 	app.get('/cadastroveiculo',function(req, res){
+-	res.render('cadastroveiculo',{validacao: {}});
++		app.app.controllers.cadastroVeiculo.cadastroVeiculo(app, req, res);
+ 	});
+ 
+-	app.post('/submitVaiculo',function(req,res){
+-		var cadastrar = req.body;
+-		
+-		req.assert('placa','Inserir Placa').notEmpty();
+-		req.assert('marca','Inserir Marca').notEmpty();
+-		req.assert('modelo','Inserir Modelo').notEmpty();
+-		req.assert('cor','Inserir Cor').notEmpty();
+-
+-		var erros = req.validationErrors();
+-		if(erros){
+-			res.render('cadastroveiculo',{validacao: erros});
+-			return;
+-		}
+-		res.render('veiculos');
+-	});
++	app.post('/submitVeiculo',function(req,res){
++		app.app.controllers.cadastroVeiculo.submitVeiculo(app, req, res);
++		});
+ }
+\ No newline at end of file
+diff --git a/app/routes/index.js b/app/routes/index.js
+index 165d14b..307c88d 100644
+--- a/app/routes/index.js
++++ b/app/routes/index.js
+@@ -1,22 +1,10 @@
+ 
+ module.exports = function(app){
+ 	app.get('/', function(req, res){
+-	res.render('index', { validacao: {}});
++		app.app.controllers.index.index(app, req, res);
+ 	});
+ 
+ 	app.post('/login', function(req, res){
+-		var login = req.body;
+-
+-
+-		req.assert('id','Inserir ID').notEmpty();
+-		req.assert('senha','Inserir senha').notEmpty();
+-
+-		var erros = req.validationErrors();
+-		if(erros)
+-		{
+-			res.render('index',{ validacao: erros});
+-			return;
+-		}
+-		res.send(login);
++		app.app.controllers.login(app,req,res);
+ 	});
+ }
+\ No newline at end of file
+diff --git a/app/views/cadastroFuncionario.ejs b/app/views/cadastroFuncionario.ejs
+index e5c9457..255bb04 100644
+--- a/app/views/cadastroFuncionario.ejs
++++ b/app/views/cadastroFuncionario.ejs
+@@ -1,7 +1,7 @@
+ <html>
+ 	<head>
+ 		<title>Cadastro Funcionario</title>
+-		<link rel="stylesheet" type="text/css" href="css/cadastroCliente.css">
++		<link rel="stylesheet" type="text/css" href="css/cadastroFuncionario.css">
+ 
+ 	</head>
+ 	<body>
+diff --git a/config/server.js b/config/server.js
+index 482124c..d92ba39 100644
+--- a/config/server.js
++++ b/config/server.js
+@@ -13,6 +13,7 @@ app.use(validator());
+ app.use(express.static('./app/public'));
+ consign().include('app/routes').
+ then('app/models').
++then('app/controllers').
+ then('config/connection.js').
+ into(app);
+ 
+-- 
+2.18.0.windows.1
+
