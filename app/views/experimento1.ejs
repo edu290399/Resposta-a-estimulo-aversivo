@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Inicio</title>
+		<link rel="stylesheet" type="text/css" href="css/experimento.css">
+
+	</head>
+	<body>
+		<div>
+			
+			<form action = '/redirect' method= 'post'>
+
+					
+                <html>
+                    <head>
+                        <title>Inicio</title>
+                        <link rel="stylesheet" type="text/css" href="css/experimento.css">
+                
+                    </head>
+                    <body>
+                        <div>
+                            
+                            <form action = '/redirect' method= 'post'>
+                
+                                
+                                <table>
+                            
+                                    <% var cont=1; %>
+                                     <% for(var i = 1; i < 4; i++){ %>
+                                        <tr>
+                                     <%    for(var l = 1; l < 4; l++){ %>
+                                        
+                        
+                                            <td>
+                                                <form action = '/editF' method = 'post'>
+                                                    
+                                                </form>
+                                               
+                                               <td> <input type="submit" class="condicao" value = "<%= cont%>" name=`${bt} ${<% cont%>}` ></input> </td>
+                                                <% cont++%>
+                                            </td>
+                        
+                                        
+                                        <% } %> </tr> <% } %>
+                        
+                                </table>
+                        
+                                    
+                                    
+                                    
+                            </form>
+                    </div>
+                    </sript>
+                    </body>
+					
+					
+					
+			</form>
+	</div>
+	</sript>
+	</body>
