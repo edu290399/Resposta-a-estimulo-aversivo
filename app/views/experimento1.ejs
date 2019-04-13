@@ -21,26 +21,31 @@
                             
                             <form action = '/redirect' method= 'post'>
                 
-                                
+                                <label> SENHA: 12345 </label>
+                                            
                                 <table>
-                            
-                                    <% var cont=1; %>
-                                     <% for(var i = 1; i < 4; i++){ %>
+                                            
+                                            
+                                        
+                                            <td> <input type="submit" class="condicao" value = 1 name='bt1' ></input> </td>
+                                            <td> <input type="submit" class="condicao" value = 2 name='bt2' ></input> </td>
+                                            <td> <input type="submit" class="condicao" value = 3 name='bt3' ></input> </td>
+                                        </tr>
                                         <tr>
-                                     <%    for(var l = 1; l < 4; l++){ %>
-                                        
-                        
-                                            <td>
-                                                <form action = '/editF' method = 'post'>
-                                                    
-                                                </form>
-                                               
-                                               <td> <input type="submit" class="condicao" value = "<%= cont%>" name=`${bt} ${<% cont%>}` ></input> </td>
-                                                <% cont++%>
-                                            </td>
-                        
-                                        
-                                        <% } %> </tr> <% } %>
+                                            <td> <input type="submit" class="condicao" value = 4 name='bt4' ></input> </td>
+                                            <td> <input type="submit" class="condicao" value = 5 name='bt5' ></input> </td>
+                                            <td> <input type="submit" class="condicao" value = 6 name='bt6' ></input> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <input type="submit" class="condicao" value = 7 name='bt7>' ></input> </td>
+                                            <td> <input type="submit" class="condicao" value = 8 name='bt8>' ></input> </td>
+                                            <td> <input id="bt9" type="submit" class="condicao" value = 9 name='bt9' ></input> </td>
+                                        </tr>
+                                        <tr>
+                                                <td> <input type="submit" class="condicao" value = "." name='bt.'> </input></td>
+                                                <td> <input type="submit" class="condicao" value = "0" name='bt0' ></input> </td>
+                                                <td> <input id="apagar" type="image" src="iconeApagar.png"  value="" class="condicao"  name='btapagar' ></input> </td>
+                                        </tr>
                         
                                 </table>
                         

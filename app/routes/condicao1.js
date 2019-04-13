@@ -1,6 +1,6 @@
 module.exports = function(app){
 
-	app.get('/experimento1',function(req, res){
+	app.post('/experimento1',function(req, res){
 		app.app.controllers.condicao1.experimento1(app,req,res);
 		
 	});
