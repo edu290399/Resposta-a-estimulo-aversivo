@@ -1,0 +1,36 @@
+body{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translateY(-50%) translateX(-50%);
+}
+
+input{
+    margin: -5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background-color: rgb(21, 29, 19);
+    color: white;
+    border-color: black;
+    font-size: 0,5cm
+
+}
+
+#apagar{
+  
+    margin-top: -4px;
+    padding: 0px;
+    padding-bottom: 0.5px;
+    border-collapse: separate;
+    border-collapse: collapse;
+    border-color: black;
+}
+
+label{
+    font-size: 20px;
+    text-align: center;
+    margin-left: 50px;
+    
+}
