@@ -14,15 +14,16 @@ body{
 input{
     margin-bottom: 10px;
     border-color: black;
-    border-width: 1px;
+    border-width: 1.5px;
     border-radius: 5px;
-    padding: 3px;
+    padding: 5px;
+    text-align: center;
 }
-#enviar{
-    font-size: 20px;
-    margin-left:30%;
-    margin-top: 10px;
-    border-color:black;
-    border-width: 2px;
-    border-radius: 5px;
+.condicao{
+margin-left: 10px;
+display: inline
+}
+
+form{
+    display: inline
 }

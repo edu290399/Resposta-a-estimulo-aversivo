@@ -5,7 +5,7 @@ var connection = function(){
 			host : 'localhost',
 			user : 'root',
 			password : '',
-			database : 'site_juju'
+			database : 'projetoAmanda'
 		});
 	connection.connect(function(err) {
 		if (err) {

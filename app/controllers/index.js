@@ -1,5 +1,5 @@
 module.exports.index = function(app, req, res){
-	res.render('index', { validacao: [], err: ''});
+	res.render('cadastro', { validacao: [], err: ''});
 }
 
 module.exports.redirect = function(app, req, res){

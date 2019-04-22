@@ -6,9 +6,14 @@ module.exports = function(app){
 	});
 
 
-	app.get('/condicao1',function(req, res){
-		app.app.controllers.condicao1.condicao1(app,req,res);
+	app.post('/condicao',function(req, res){
+		app.app.controllers.condicao1.condicao(app,req,res);
 		
 	});
+
+	app.post('/info1',function(req, res){
+		app.app.controllers.condicao1.info1(app,req,res);
+		
+	});	
 
 }
