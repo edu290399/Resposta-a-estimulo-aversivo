@@ -14,6 +14,10 @@ module.exports = function(app){
 	app.post('/info1',function(req, res){
 		app.app.controllers.condicao1.info1(app,req,res);
 		
-	});	
+	});
+	app.post('/teclado1',function(req, res){
+		app.app.controllers.teclado.teclado1(app,req,res);
+		
+	});		
 
 }

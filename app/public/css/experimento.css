@@ -18,9 +18,9 @@ input{
 
 }
 
-#apagar{
+#btapagar{
   
-    margin-top: -4px;
+    margin-top: -5px;
     padding: 0px;
     padding-bottom: 0.5px;
     border-collapse: separate;
@@ -31,6 +31,20 @@ input{
 label{
     font-size: 20px;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
     margin-left: 50px;
+    border-radius: 5px;   
+
+}
+#senha{
+    margin-top: 3%;
+    text-align: center;
+}
+#enviar{
+    margin-top: 5%;
+    border-radius: 2.5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 25%;
+    font-size: 15px;
     
 }
