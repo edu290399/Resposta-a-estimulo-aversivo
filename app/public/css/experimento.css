@@ -48,3 +48,8 @@ label{
     font-size: 15px;
     
 }
+#btapagar{
+    background-image: url(../iconeApagar.png);
+    width: 113%;
+    padding: 15px;
+}

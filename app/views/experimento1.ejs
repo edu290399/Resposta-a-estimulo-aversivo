@@ -31,7 +31,7 @@
                                         <tr>
                                                 <td> <input type="button" id="bt." class="tecla" value = "." name='bt.' onclick="valor(this)"> </input></td>
                                                 <td> <input type="button" id="bt0" class="tecla" value = 0 name='bt0' onclick="valor(this)"></input> </td>
-                                                <td> <input id="btapagar" type="image" src="iconeApagar.png"   class="tecla"  name='btapagar' onclick="replace()"></input> </td>
+                                                <td> <input id="btapagar" type="button"  value="" class="tecla"  name='btapagar' onclick="replace(this)"></input> </td>
                                         </tr>
                         
                                 </table>
@@ -40,8 +40,8 @@
                                 <script>document.getElementById('senha').style.display = 'none'</script>
                                 <script>document.getElementById('enviar').style.display = 'none'</script>
                                 <script>
-                                function replace(){
-                                    document.getElementById('senha').value = document.getElementById('senha').value.replace([0,1,2,3,4,5,6,7,8,9],'');
+                                function replace(el){
+                                    document.getElementById('senha').value = el.value;
                                 }
                                 function aparece(){
                                     
