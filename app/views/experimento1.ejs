@@ -1,12 +1,17 @@
 
                         <title>Inicio</title>
                         <link rel="stylesheet" type="text/css" href="css/experimento.css">
-                
+                       
                     </head>
+                    
                     <body>
+                        
                         <div>
-                            
-                            <form  method= 'post'>
+                                <% if(err != ''){%>
+                                    <h2><%=err%></h2>
+                                <%}%>
+                            <form action = '/enviar1' method='post'>
+                                
                                 <audio src="../public/SomExperimento0.mp3" type="audio/mp3" preload="auto" autoplay loop></audio>
                                 <label> SENHA: 12345 </label>
                                     
@@ -36,13 +41,30 @@
                         
                                 </table>
                                 <input type="password" id="senha" name="senha" ></input>
-                                <input type="submit" id="enviar" value="Enviar" ></input>
+                                <input id="tempo" value='0' name='tempo'></input>
+                                <input type="submit" id="enviar" value='enviar'  ></input>
+                                
                                 <script>document.getElementById('senha').style.display = 'none'</script>
                                 <script>document.getElementById('enviar').style.display = 'none'</script>
+                                </form>
                                 <script>
+                                
+                         
+
                                 function replace(el){
                                     document.getElementById('senha').value = el.value;
                                 }
+
+                               
+                                var cont = 0;
+                                function tempo(){
+                                    
+                                    cont = cont + 1;
+                                    document.getElementById('tempo').value = cont;
+                                    setTimeout('tempo()',10)
+                                }
+                                tempo();
+                        
                                 function aparece(){
                                     
                                 document.getElementById('senha').style.display = 'block'
@@ -54,21 +76,28 @@
                                 }
                             
                                 
-                                setTimeout(aparece,1000*3);
+                                setTimeout(aparece,3650)
                                 
+                                
+
+                             
+
+                                
+                               
+                                                                
                                 </script>
                                  
                                     
                                     
-                            </form>
+                            
                     </div>
-                    <script type="text/javascript" src="../controllers/teclado.js"></script>
+
                     </sript>
                     </body>
 					
 					
 					
-			</form>
+			
 	</div>
 	</sript>
 	</body>

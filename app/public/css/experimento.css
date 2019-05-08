@@ -32,15 +32,17 @@ label{
     font-size: 20px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 50px;
+    margin-left: 23%;
     border-radius: 5px;   
 
 }
 #senha{
     margin-top: 3%;
     text-align: center;
+    position: relative;
 }
 #enviar{
+    position: relative;
     margin-top: 5%;
     border-radius: 2.5px;
     font-family: Arial, Helvetica, sans-serif;

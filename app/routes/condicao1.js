@@ -15,8 +15,8 @@ module.exports = function(app){
 		app.app.controllers.condicao1.info1(app,req,res);
 		
 	});
-	app.post('/teclado1',function(req, res){
-		app.app.controllers.teclado.teclado1(app,req,res);
+	app.post('/enviar1',function(req, res){
+		app.app.controllers.enviar.enviar1(app,req,res);
 		
 	});		
 
