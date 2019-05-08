@@ -10,4 +10,9 @@ module.exports = function(app){
 		app.app.controllers.index.redirect(app,req,res);
 	});
 
+	app.post('/condicao',function(req, res){
+		app.app.controllers.cadastro.condicao(app,req,res);
+		
+	});
+
 }

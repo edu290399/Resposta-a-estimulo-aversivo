@@ -1,4 +1,4 @@
-<title>Inicio</title>
+<title>experimento1SE</title>
 <link rel="stylesheet" type="text/css" href="css/experimento.css">
 
 </head>
@@ -11,7 +11,7 @@
         <%}%>
     <form action = '/enviar1' method='post'>
         
-        <audio src="../public/SomExperimento0.mp3" type="audio/mp3" preload="auto" autoplay loop></audio>
+        <audio src="../public/SomExperimento.mp3" type="audio/mp3"  autoplay loop></audio>
         <label> SENHA: 12345 </label>
             
         <table>
@@ -40,7 +40,7 @@
 
         </table>
         <input type="password" id="senha" name="senha" ></input>
-        
+        <input id="tempo" name="tempo" value="<%= experimento1SE.tempo %>"></input>
         <input type="submit" id="enviar" value='enviar'  ></input>
         
         <script>document.getElementById('senha').style.display = 'none'</script>
@@ -56,6 +56,14 @@
         document.getElementById('senha').style.display = 'block'
         document.getElementById('enviar').style.display = 'block'
         }
+        var cont;
+        function tempo(){
+            cont =  parseInt(document.getElementById('tempo').value, 10);                        
+            cont = cont + 1;
+            document.getElementById('tempo').value = cont;
+            setTimeout('tempo()',10)
+        }
+        tempo();
         
         function  valor(el){
             document.getElementById('senha').value =document.getElementById('senha').value + el.value;

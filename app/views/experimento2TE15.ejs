@@ -11,7 +11,7 @@
         <%}%>
     <form action = '/enviar2' method='post'>
         
-        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3" preload="auto" autoplay loop></audio>
+        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3" autoplay loop></audio>
         <label> SENHA: 12345 </label>
             
         <table>
@@ -63,11 +63,14 @@
             setTimeout('tempo()',10)
         }
         tempo();
-        function volumeSom50(){
-            document.getElementById('som').volume = 0.5
-        
+        function volumeSom0(){
+                document.getElementById('som').volume = 0.0
         }
-        volumeSom50();
+        volumeSom0();
+        function volumeSom50(){
+                document.getElementById('som').volume = 0.3
+        }
+        setTimeout(volumeSom50,5*1000)
         function aparece(){
             
         document.getElementById('senha').style.display = 'block'

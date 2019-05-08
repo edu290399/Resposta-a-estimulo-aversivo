@@ -9,9 +9,9 @@
         <% if(err != ''){%>
             <h2><%=err%></h2>
         <%}%>
-    <form action = '/enviar2' method='post'>
+    <form action = '/enviar2S80' method='post'>
         
-        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3" preload="auto" autoplay loop></audio>
+        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3" autoplay loop></audio>
         <label> SENHA: 12345 </label>
             
         <table>
@@ -40,7 +40,7 @@
 
         </table>
         <input type="password" id="senha" name="senha" ></input>
-        <input id="tempo" value='0' name='tempo'></input>
+        <input id="tempo" value="<%= experimento2SE80.tempo %>" id="tempo" name="tempo"></input>
         <input type="submit" id="enviar" value='enviar'  ></input>
         
         <script>document.getElementById('senha').style.display = 'none'</script>
@@ -57,17 +57,16 @@
        
         var cont = 0;
         function tempo(){
-            
+            cont =  parseInt(document.getElementById('tempo').value, 10);                        
             cont = cont + 1;
             document.getElementById('tempo').value = cont;
             setTimeout('tempo()',10)
         }
         tempo();
-        function volumeSom50(){
-            document.getElementById('som').volume = 0.5
-        
+        function volumeSom80(){
+                document.getElementById('som').volume = 0.8
         }
-        volumeSom50();
+        volumeSom80()
         function aparece(){
             
         document.getElementById('senha').style.display = 'block'
@@ -79,7 +78,7 @@
         }
     
         
-        setTimeout(aparece,10*1000)
+        setTimeout(aparece,0*1000)
         
         
 
