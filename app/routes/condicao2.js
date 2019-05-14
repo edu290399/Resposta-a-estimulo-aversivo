@@ -1,7 +1,7 @@
 module.exports = function(app){
 
 	app.post('/experimento2',function(req, res){
-		app.app.controllers.condicao2.experimento2(app,req,res);
+		app.app.controllers.enviar.experimento2(app,req,res);
 		
 	});
 
