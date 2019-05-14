@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>RegistrosTempo</title>
+			<link rel="stylesheet" type="text/css" href="css/busca.css">
+
+		</head>
+	<body>
+	<form autocomplete="off" action='/' method='get'>
+		<h1><input type="submit" class="HOME" value="Voltar" name="HOME"></input></h1>
+	</form>
+		<h2>Registros de Tempo (Condição 2)</h2>
+
+		<table>
+			
+			<tr>
+				<th>ID do Sujeito</th>
+				<th>Registro</th>
+				<th>Data e Hora</th>
+				<th>Tempo(segundos)</th>
+
+				
+			</tr>
+			<% if(tempo2){ %>
+			<% for(var i = 0; i < tempo2.length; i++){ %>
+				
+				<tr>
+					
+
+					<td><%= tempo2[i].IDpessoa %></td>
+					<td><%= tempo2[i].ID%></td>
+					<td><%= tempo2[i].data%></td>
+					<td><%= tempo2[i].tempo/10%></td>
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

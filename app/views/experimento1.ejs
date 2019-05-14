@@ -12,7 +12,7 @@
                                 <%}%>
                             <form action = '/enviar1' method='post'>
                                 
-                                <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3" preload="auto" autoplay loop></audio>
+                                <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"  autoplay loop></audio>
                                 <label> SENHA: 12345 </label>
                                     
                                 <table>
@@ -57,11 +57,12 @@
 
                                
                                 var cont = 0;
+                                
                                 function tempo(){
                                     
                                     cont = cont + 1;
                                     document.getElementById('tempo').value = cont;
-                                    setTimeout('tempo()',10)
+                                    setTimeout('tempo()',97)
                                 }
                                 tempo();
                                 function volumeSom50(){
@@ -80,7 +81,7 @@
                                 }
                             
                                 
-                                setTimeout(aparece,10*1000)
+                                setTimeout(aparece,0)
                                 
                                 
 

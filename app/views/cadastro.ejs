@@ -8,16 +8,27 @@
 				
 
         <head>
+                        <form autocomplete="off" action='/busca1' method='POST'>	
+                                <h2><input type="submit" class="HOME" value="Tempos(Condição 1)" name="HOME"></input></h2>
+                        </form>
+                        <form autocomplete="off" action='/busca2' method='POST'>	
+                                <h2><input type="submit" class="HOME" value="Tempos(Condição 2)" name="HOME"></input></h2>
+                        </form>                    
                 <h1>Cadastro do Sujeito</h1>
+                <% if(validacao.length>0){ %>
+                        <div id="erro">
+                        <%= validacao[0].msg %>
+                </div>
+                <% } %>	
                 
         </head>
        
                 <div>
                             
                         <form action = '/condicao' method= 'post'>
-                        <input  name="nome" placeholder="Nome do Sujeito" class="cadastro"></input>
-                        <input  name="idade" placeholder="Idade do Sujeito" class="cadastro"></input>
-                        <input  name="sexo" placeholder="Sexo do Sujeito" class="cadastro"></input>
+                        <input  name="nome" placeholder="Nome do Sujeito" value="<%= cadastro.nome %>" class="cadastro"></input>
+                        <input  name="idade" placeholder="Idade do Sujeito" value="<%= cadastro.idade%>" class="cadastro"></input>
+                        <input  name="sexo" placeholder="Sexo do Sujeito" value="<%= cadastro.sexo %>" class="cadastro"></input>
                         <br>
                         
                         

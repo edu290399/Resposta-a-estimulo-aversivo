@@ -9,7 +9,7 @@
         <% if(err != ''){%>
             <h2><%=err%></h2>
         <%}%>
-    <form action = '/enviar2' method='post'>
+    <form action = '/enviar2S80' method='post'>
         
         <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3" autoplay loop></audio>
         <label> SENHA: 12345 </label>
@@ -55,12 +55,12 @@
         }
 
        
-        var cont = 0;
+        var cont = -50;
         function tempo(){
             
             cont = cont + 1;
             document.getElementById('tempo').value = cont;
-            setTimeout('tempo()',10)
+            setTimeout('tempo()',97)
         }
         tempo();
         function volumeSom0(){
@@ -82,7 +82,7 @@
         }
     
         
-        setTimeout(aparece,10*1000)
+        setTimeout(aparece,14700)
         
         
 

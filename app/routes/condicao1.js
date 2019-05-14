@@ -12,6 +12,9 @@ module.exports = function(app){
 	app.post('/enviar1',function(req, res){
 		app.app.controllers.enviar.enviar1(app,req,res);
 		
-	});		
+	});	
+	
+
+
 
 }

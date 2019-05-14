@@ -1,5 +1,8 @@
 module.exports.index = function(app, req, res){
-	res.render('cadastro', { validacao: [], err: ''});
+	res.render('cadastro', { validacao: [], cadastro: []});
+	var teste;
+	teste  = 6 / 3;
+	console.log(parseInt(teste,10));
 }
 
 module.exports.redirect = function(app, req, res){

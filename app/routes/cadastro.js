@@ -14,5 +14,12 @@ module.exports = function(app){
 		app.app.controllers.cadastro.condicao(app,req,res);
 		
 	});
+	app.post('/busca1', function(req, res){
+		app.app.controllers.busca.buscaTempo1(app,req,res);
+	});
+	
+	app.post('/busca2', function(req, res){
+		app.app.controllers.busca.buscaTempo2(app,req,res);
+	});
 
 }
