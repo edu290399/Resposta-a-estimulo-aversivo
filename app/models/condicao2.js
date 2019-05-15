@@ -11,5 +11,8 @@ module.exports = function(){
     	this.getTempo = function(connection, callback){
             connection.query('select * from condicaodois',callback);
         }
+        this.getIDpessoa = function(IDpessoa, connection, callback){
+            connection.query('select * from sujeitos where id = "'+IDpessoa+'"',callback);
+        }
         return this;
     }

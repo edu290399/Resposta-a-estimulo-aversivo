@@ -15,9 +15,7 @@ module.exports = function(){
     }
 
    
-     this.getSujeitoNome = function(ID, connection, callback){
-        connection.query('select * from sujeitos where nome = "'+nome+'"',callback);
-    }
+
     return this;
   
 }

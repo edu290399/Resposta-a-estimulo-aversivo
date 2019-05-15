@@ -12,5 +12,8 @@ this.tempo = function(envio1, connection){
 this.getTempo = function(connection, callback){
         connection.query('select * from condicaoum',callback);
     }
+this.getIDpessoa = function(IDpessoa, connection, callback){
+        connection.query('select * from sujeitos where id = "'+IDpessoa+'"',callback);
+    }
     return this;
 }

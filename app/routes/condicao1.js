@@ -14,7 +14,10 @@ module.exports = function(app){
 		
 	});	
 	
-
+	app.post('/buscaSujeito1',function(req, res){
+		app.app.controllers.condicao1.buscaSujeito1(app,req,res);
+		
+	});
 
 
 }

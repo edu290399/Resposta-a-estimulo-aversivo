@@ -111,7 +111,7 @@ module.exports.enviar2S30 = function(app, req, res){
 	if(erros)
 	{
 		var err='Preencher Senha';
-		res.render('experimento2SE', {err: err, experimento2SE : envio2});
+		res.render('experimento2SE30', {err: err, experimento2SE30 : envio2});
 		return;
 	}
 
@@ -158,7 +158,7 @@ module.exports.enviar2S80 = function(app, req, res){
 	if(erros)
 	{
 		var err='Preencher Senha';
-		res.render('experimento2SE', {err: err, experimento2SE : envio2});
+		res.render('experimento2SE80', {err: err, experimento2SE80 : envio2});
 		return;
 	}
 

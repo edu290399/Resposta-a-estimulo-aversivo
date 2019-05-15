@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Registro Sujeito</title>
+			<link rel="stylesheet" type="text/css" href="css/busca.css">
+
+		</head>
+	<body>
+	<form autocomplete="off" action='/busca1' method='post'>
+		<h1><input type="submit" class="HOME" value="Voltar" name="HOME"></input></h1>
+	</form>
+		<h2>Registros de Sujeito</h2>
+
+		<table>
+			
+			<tr>
+				
+				<th>ID do Sujeito</th>
+                <th>Nome</th>
+                <th>Condição</th>
+				<th>Idade</th>
+				<th>Sexo</th>
+
+				
+			</tr>
+			<% if(sujeito){ %>
+			<% for(var i = 0; i < sujeito.length; i++){ %>
+				
+				<tr>
+
+
+					<td><%= sujeito[i].id %></td>
+                    <td><%= sujeito[i].nome%></td>
+                    <td><%= sujeito[i].condicao%></td>
+					<td><%= sujeito[i].idade%></td>
+					<td><%= sujeito[i].sexo%></td>
+
+				</tr>
+			<% } } %>
+
+		</table>
+
+	</body>
+</html>

@@ -28,7 +28,11 @@
 				<tr>
 					
 
-					<td><%= tempo2[i].IDpessoa %></td>
+					<td>
+						<form action = '/buscaSujeito2' method = 'post'>
+							<input class = 'id' id='IDpessoa' type='submit' name='IDpessoa' value='<%= tempo2[i].IDpessoa%>'>
+						</form>
+					</td>
 					<td><%= tempo2[i].ID%></td>
 					<td><%= tempo2[i].data%></td>
 					<td><%= tempo2[i].tempo/10%></td>

@@ -15,6 +15,7 @@
 		<table>
 			
 			<tr>
+				
 				<th>ID do Sujeito</th>
 				<th>Registro</th>
 				<th>Data e Hora</th>
@@ -26,9 +27,13 @@
 			<% for(var i = 0; i < tempo1.length; i++){ %>
 				
 				<tr>
-					
 
-					<td><%= tempo1[i].IDpessoa %></td>
+					<td>
+						<form action = '/buscaSujeito1' method = 'post'>
+							<input class = 'id' id='IDpessoa' type='submit' name='IDpessoa' value='<%= tempo1[i].IDpessoa%>'>
+						</form>
+					</td>
+					
 					<td><%= tempo1[i].ID%></td>
 					<td><%= tempo1[i].data%></td>
 					<td><%= tempo1[i].tempo/10%></td>

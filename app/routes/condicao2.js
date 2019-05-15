@@ -23,4 +23,9 @@ module.exports = function(app){
 		
 	});
 
+	app.post('/buscaSujeito2',function(req, res){
+		app.app.controllers.condicao2.buscaSujeito2(app,req,res);
+		
+	});
+
 }
