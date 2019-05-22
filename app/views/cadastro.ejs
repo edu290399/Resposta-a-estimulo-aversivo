@@ -26,16 +26,16 @@
                 <div>
                             
                         <form action = '/condicao' method= 'post'>
-                        <input  name="nome" placeholder="Nome do Sujeito" value="<%= cadastro.nome %>" class="cadastro"></input>
-                        <input  name="idade" placeholder="Idade do Sujeito" value="<%= cadastro.idade%>" class="cadastro"></input>
-                        <input  name="sexo" placeholder="Sexo do Sujeito" value="<%= cadastro.sexo %>" class="cadastro"></input>
+                        <input  name="nome" placeholder="Nome do Sujeito" value="<%= cadastro.nome %>" class="cadastro" required></input>
+                        <input type="number" name="idade" placeholder="Idade do Sujeito" value="<%= cadastro.idade%>" class="cadastro" required></input>
+                        <input  name="sexo" placeholder="Sexo do Sujeito" value="<%= cadastro.sexo %>" class="cadastro" required></input>
                         <br>
                         
                         
-                                <input type="submit" class="condicao" value="Condição 1.1" name="condicao1.1"> </input>
-                                <input type="submit" class="condicao" value="Condição 1.2" name="condicao1.2"> </input>
-                                <input type="submit" class="condicao" value = "Condição 2.1" name="condicao2.1"></input> 
-                                <input type="submit" class="condicao" value="Condição 2.2" name="condicao2.2"> </input>            
+                                <input type="submit" class="condicao" value="Condição 1.1" name="condicao11"> </input>
+                                <input type="submit" class="condicao" value="Condição 1.2" name="condicao12"> </input>
+                                <input type="submit" class="condicao" value = "Condição 2.1" name="condicao21"></input> 
+                                <input type="submit" class="condicao" value="Condição 2.2" name="condicao22"> </input>            
                         </form>
                         
                 </div>

@@ -1,4 +1,4 @@
-<title>Condicao2</title>
+<title>Experimento1TE5</title>
 <link rel="stylesheet" type="text/css" href="css/experimento.css">
 
 </head>
@@ -9,9 +9,9 @@
         <% if(err != ''){%>
             <h2><%=err%></h2>
         <%}%>
-    <form action = '/enviar2' method='post'>
+    <form action = '/enviar1' method='post'>
         
-        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"   autoplay loop></audio>
+        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"  autoplay  loop></audio>
         <label> SENHA: 12345 </label>
             
         <table>
@@ -55,7 +55,7 @@
         }
 
        
-        var cont = 0;
+        var cont = -150;
         function tempo(){
             
             cont = cont + 1;
@@ -63,11 +63,17 @@
             setTimeout('tempo()',97)
         }
         tempo();
+        function volumeSom0(){
+            document.getElementById('som').volume = 0.0
+        }
+        volumeSom0();
         function volumeSom50(){
             document.getElementById('som').volume = 0.5
-        
         }
-        volumeSom50();
+        setTimeout(volumeSom50,15*1000)
+        setTimeout(function() {
+            window.location.reload(1);
+            }, 30*1000);
         function aparece(){
             
         document.getElementById('senha').style.display = 'block'
@@ -79,7 +85,7 @@
         }
     
         
-        setTimeout(aparece,14700)
+        setTimeout(aparece,25*1000)
         
         
 

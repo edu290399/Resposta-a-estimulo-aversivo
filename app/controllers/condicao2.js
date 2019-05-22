@@ -10,6 +10,9 @@ module.exports.buscaSujeito2= function(app, req,res){
 
 }
 
-module.exports.info2 = function(app,req,res){       
-    res.render('info2',{ validacao: [], err: ''});
+module.exports.info21 = function(app,req,res){       
+    res.render('info21',{ validacao: [], err: ''});
+}
+module.exports.info22 = function(app,req,res){       
+    res.render('info22',{ validacao: [], err: ''});
 }

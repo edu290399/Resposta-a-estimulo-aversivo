@@ -7,8 +7,11 @@ module.exports.buscaSujeito1= function(app, req,res){
         
 }
 
-module.exports.info1 = function(app,req,res){       
-    res.render('info1',{ validacao: [], err: ''});
+module.exports.info11 = function(app,req,res){       
+    res.render('info11',{ validacao: [], err: ''});
+}
+module.exports.info12 = function(app,req,res){       
+    res.render('info12',{ validacao: [], err: ''});
 }
 
 

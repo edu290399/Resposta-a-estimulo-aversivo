@@ -4,14 +4,22 @@ module.exports = function(){
         connection.query('select * from sujeitos ORDER BY nome',callback);
     }
 
-    this.cadastro1 = function(sujeito, connection, callback){
+    this.cadastro11 = function(sujeito, connection, callback){
         connection.query('insert into sujeitos set ?', sujeito);
-        connection.query('insert into sujeitos set condicao', "1",callback);
+        connection.query('insert into sujeitos set condicao', "1.1",callback);
+    }
+    this.cadastro12 = function(sujeito, connection, callback){
+        connection.query('insert into sujeitos set ?', sujeito);
+        connection.query('insert into sujeitos set condicao', "1.2",callback);
+    }
+    this.cadastro21 = function(sujeito, connection, callback){
+        connection.query('insert into sujeitos set ?', sujeito);
+        connection.query('insert into sujeitos set condicao', "2.1",callback);
     }
 
-    this.cadastro2 = function(sujeito, connection, callback){
+    this.cadastro22 = function(sujeito, connection, callback){
         connection.query('insert into sujeitos set ?', sujeito);
-        connection.query('insert into sujeitos set condicao', "2",callback);
+        connection.query('insert into sujeitos set condicao', "2.2",callback);
     }
 
    

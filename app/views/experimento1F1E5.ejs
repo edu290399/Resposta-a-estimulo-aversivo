@@ -1,0 +1,112 @@
+<title>Condicao1</title>
+<link rel="stylesheet" type="text/css" href="css/experimento.css">
+
+</head>
+
+<body>
+
+<div>
+        <% if(err != ''){%>
+            <h2><%=err%></h2>
+        <%}%>
+    <form action = '/enviar1' method='post'>
+        
+        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"  autoplay loop></audio>
+        <label> SENHA: 12345 </label>
+            
+        <table>
+                    
+                    
+
+                    <td> <input type="button" id="bt1" class="tecla" value = 1 name='bt1' onclick="valor(this)"></input> </td>
+                    <td> <input type="button" id="bt2" class="tecla" value = 2 name='bt2' onclick="valor(this)"></input> </td>
+                    <td> <input type="button" id="bt3" class="tecla" value = 3 name='bt3' onclick="valor(this)"></input> </td>
+                </tr>
+                <tr>
+                    <td> <input type="button" id="bt4" class="tecla" value = 4 name='bt4' onclick="valor(this)"></input> </td>
+                    <td> <input type="button" id="bt5" class="tecla" value = 5 name='bt5' onclick="valor(this)"></input> </td>
+                    <td> <input type="button" id="bt6" class="tecla" value = 6 name='bt6' onclick="valor(this)"></input> </td>
+                </tr>
+                <tr>
+                    <td> <input type="button" id="bt7" class="tecla" value = 7 name='bt7>'onclick="valor(this)" ></input> </td>
+                    <td> <input type="button" id="bt8" class="tecla" value = 8 name='bt8>' onclick="valor(this)"></input> </td>
+                    <td> <input id="bt9" type="button" class="tecla" value = 9 name='bt9' onclick="valor(this)"></input> </td>
+                </tr>
+                <tr>
+                        <td> <input type="button" id="bt." class="tecla" value = "." name='bt.' onclick="valor(this)"> </input></td>
+                        <td> <input type="button" id="bt0" class="tecla" value = 0 name='bt0' onclick="valor(this)"></input> </td>
+                        <td> <input id="btapagar" type="button"  value="" class="tecla"  name='btapagar' onclick="replace(this)"></input> </td>
+                </tr>
+
+        </table>
+        <input type="password" id="senha" name="senha" ></input>
+        <input id="tempo" value='0' name='tempo'></input>
+        <input type="submit" id="enviar" value='enviar'  ></input>
+        
+        <script>document.getElementById('senha').style.display = 'none'</script>
+        <script>document.getElementById('enviar').style.display = 'none'</script>
+        </form>
+        <script>
+        
+ 
+
+        function replace(el){
+            document.getElementById('senha').value = el.value;
+        }
+
+       
+        var cont = -50;
+        
+        function tempo(){
+            
+            cont = cont + 1;
+            document.getElementById('tempo').value = cont;
+            setTimeout('tempo()',97)
+        }
+        tempo();
+        function volumeSom0(){
+            document.getElementById('som').volume = 0.0
+        
+        }
+        volumeSom0();
+        function volumeSom50(){
+            document.getElementById('som').volume = 0.5
+        
+        }
+        setTimeout('volumeSom50()',5000);
+        function aparece(){
+            
+        document.getElementById('senha').style.display = 'block'
+        document.getElementById('enviar').style.display = 'block'
+        }
+        
+        function  valor(el){
+            document.getElementById('senha').value =document.getElementById('senha').value + el.value;
+        }
+
+        
+        setTimeout(aparece,20*1000)
+        
+        
+
+     
+
+        
+       
+                                        
+        </script>
+         
+            
+            
+    
+</div>
+
+</sript>
+</body>
+
+
+
+
+</div>
+</sript>
+</body>
