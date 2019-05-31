@@ -23,8 +23,23 @@ module.exports = function(app){
 		
 	});	
 
-	app.post('/enviar12',function(req, res){
-		app.app.controllers.enviar.enviar12(app,req,res);
+	app.post('/enviar1F1',function(req, res){
+		app.app.controllers.enviar.enviar1F1(app,req,res);
+		
+	});	
+
+	app.post('/enviar1F2',function(req, res){
+		app.app.controllers.enviar.enviar1F2(app,req,res);
+		
+	});	
+
+	app.post('/errosenha',function(req, res){
+		app.app.controllers.enviar.errosenha(app,req,res);
+		
+	});	
+
+	app.post('/errosenha2',function(req, res){
+		app.app.controllers.enviar.errosenha2(app,req,res);
 		
 	});	
 	

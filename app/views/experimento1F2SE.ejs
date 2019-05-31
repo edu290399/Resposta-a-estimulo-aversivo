@@ -1,4 +1,4 @@
-<title>Experimento1TE5</title>
+<title>Condicao1</title>
 <link rel="stylesheet" type="text/css" href="css/experimento.css">
 
 </head>
@@ -9,9 +9,9 @@
         <% if(err != ''){%>
             <h2><%=err%></h2>
         <%}%>
-    <form action = '/enviar1' method='post'>
+    <form action = '/enviar1F2' method='post'>
         
-        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"  autoplay  loop></audio>
+        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"  autoplay loop></audio>
         <label> SENHA: 12345 </label>
             
         <table>
@@ -40,13 +40,17 @@
 
         </table>
         <input type="password" id="senha" name="senha" ></input>
-        <input id="tempo" value='0' name='tempo'></input>
+        <input id="tempo" value="<%= experimento1F2SE.tempo %>" name='tempo'></input>
         <input type="submit" id="enviar" value='enviar'  ></input>
         
         <script>document.getElementById('senha').style.display = 'none'</script>
         <script>document.getElementById('enviar').style.display = 'none'</script>
         </form>
+        <form action = '/errosenha2' method='post'>
+        <input type="submit" id="errosenha" value="errosenha"></input>
+        </form>
         <script>
+        
         
  
 
@@ -55,22 +59,30 @@
         }
 
        
-        var cont = -50;
+      
+        
+        var cont;
+        var inicio = parseInt(document.getElementById('tempo').value, 10);  
         function tempo(){
-            
+            cont =  parseInt(document.getElementById('tempo').value, 10);                        
             cont = cont + 1;
             document.getElementById('tempo').value = cont;
             setTimeout('tempo()',97)
         }
         tempo();
-        function volumeSom0(){
-            document.getElementById('som').volume = 0.0
-        }
-        volumeSom0();
+
+
+
+        setTimeout(function() {
+            document.getElementById('errosenha').click();
+            
+        }, (15*1000)-(inicio*100));
+
         function volumeSom50(){
             document.getElementById('som').volume = 0.5
+        
         }
-        setTimeout(volumeSom50,5000)
+        volumeSom50();
         function aparece(){
             
         document.getElementById('senha').style.display = 'block'
@@ -82,7 +94,7 @@
         }
     
         
-        setTimeout(aparece,20*1000)
+        aparece();
         
         
 
