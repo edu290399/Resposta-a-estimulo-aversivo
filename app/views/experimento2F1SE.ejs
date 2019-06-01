@@ -1,4 +1,4 @@
-<title>Experimento1TE5</title>
+<title>Condicao2</title>
 <link rel="stylesheet" type="text/css" href="css/experimento.css">
 
 </head>
@@ -9,9 +9,9 @@
         <% if(err != ''){%>
             <h2><%=err%></h2>
         <%}%>
-    <form action = '/enviar2F2' method='post'>
+    <form action = '/enviar2F1' method='post'>
         
-        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"  autoplay  loop></audio>
+        <audio id="som" src="../public/SomExperimento.mp3" type="audio/mp3"   autoplay loop></audio>
         <label> SENHA: 12345 </label>
             
         <table>
@@ -40,7 +40,7 @@
 
         </table>
         <input type="password" id="senha" name="senha" ></input>
-        <input id="tempo" value='0' name='tempo'></input>
+        <input id="tempo" value="<%= experimento2F1SE.tempo %>" name='tempo'></input>
         <input type="submit" id="enviar" value='enviar'  ></input>
         
         <script>document.getElementById('senha').style.display = 'none'</script>
@@ -58,6 +58,7 @@
         var cont = 0;
         function tempo(){
             
+            cont =  parseInt(document.getElementById('tempo').value, 10);                        
             cont = cont + 1;
             document.getElementById('tempo').value = cont;
             setTimeout('tempo()',97)
@@ -65,23 +66,21 @@
         tempo();
         function volumeSom50(){
             document.getElementById('som').volume = 0.5
+        
         }
         volumeSom50();
-        setTimeout(function() {
-            window.location.reload(1);
-            }, 15*1000);
         function aparece(){
             
         document.getElementById('senha').style.display = 'block'
         document.getElementById('enviar').style.display = 'block'
         }
-        
+        aparece();
         function  valor(el){
             document.getElementById('senha').value =document.getElementById('senha').value + el.value;
         }
     
         
-        setTimeout(aparece,10*1000)
+        
         
         
 

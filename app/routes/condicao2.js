@@ -42,6 +42,14 @@ module.exports = function(app){
 		
 	});
 
+	app.post('/errosenha3',function(req, res){
+		app.app.controllers.enviar.errosenha3(app,req,res);
+		
+	});	
+	app.post('/errosenha4',function(req, res){
+		app.app.controllers.enviar.errosenha4(app,req,res);
+		
+	});	
 
 	app.post('/buscaSujeito2',function(req, res){
 		app.app.controllers.condicao2.buscaSujeito2(app,req,res);

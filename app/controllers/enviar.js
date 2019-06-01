@@ -17,6 +17,21 @@ module.exports.experimento2F2 = function(app,req,res){
 	console.log("estamos aqui ainda...")
 	//cont2 = cont2 + 1;
 }
+
+module.exports.errosenha = function(app,req,res){       
+    res.render('experimento1F1E15',{ validacao: [], err: ''});
+}
+module.exports.errosenha2 = function(app,req,res){       
+    res.render('experimento1F2',{ validacao: [], err: ''});
+}
+module.exports.errosenha3 = function(app,req,res){       
+    res.render('experimento2FS30MAX15',{ validacao: [], err: ''});
+}
+module.exports.errosenha4 = function(app,req,res){       
+    res.render('experimento2FS50MAX15',{ validacao: [], err: ''});
+}
+
+
 module.exports.enviar1 = function(app, req, res){
 	var envio1 = req.body;
 
@@ -75,14 +90,9 @@ module.exports.enviar1 = function(app, req, res){
 	
 	})	
 }
-module.exports.errosenha = function(app,req,res){       
-    res.render('experimento1F1E15',{ validacao: [], err: ''});
-    console.log("estamos aqui ainda...")
-}
-module.exports.errosenha2 = function(app,req,res){       
-    res.render('experimento1F2',{ validacao: [], err: ''});
-    console.log("estamos aqui ainda...")
-}
+
+
+
 module.exports.enviar1F1 = function(app, req, res){
 	var envio1 = req.body;
 
@@ -203,8 +213,14 @@ module.exports.enviar2 = function(app, req, res){
 	var erros = req.validationErrors();
 	if(erros)
 	{
+		if(cont2==2 && envio2.tempo<153){
+			var err='Preencher Senha';
+			res.render('experimento2F1SE1', {err: err, experimento2F1SE1 : envio2});
+		}
+		else{
 		var err='Preencher Senha';
 		res.render('experimento2SE', {err: err, experimento2SE : envio2});
+		}
 		return;
 	}
 
@@ -231,8 +247,14 @@ module.exports.enviar2 = function(app, req, res){
 			}	
 		}
 		else{
+			if(cont2==2 && envio2.tempo<153){
+				var err='Senha Incorreta';
+				res.render('experimento2F1SE1', {err: err, experimento2F1SE1 : envio2});
+			}
+			else{
 			var err='Senha Incorreta';
 			res.render('experimento2SE', {err: err, experimento2SE : envio2});
+			}
 		}
 	}
 	})	
@@ -344,7 +366,7 @@ module.exports.enviar2F1 = function(app, req, res){
 	if(erros)
 	{
 		var err='Preencher Senha';
-		res.render('experimento2SE', {err: err, experimento2SE : envio2});
+		res.render('experimento2F1SE', {err: err, experimento2F1SE : envio2});
 		return;
 	}
 
@@ -376,7 +398,7 @@ module.exports.enviar2F1 = function(app, req, res){
 		}
 		else{
 			var err='Senha Incorreta';
-			res.render('experimento2SE', {err: err, experimento2SE : envio2});
+			res.render('experimento2F1SE', {err: err, experimento2F1SE : envio2});
 		}
 		}
 	})	
@@ -393,7 +415,7 @@ module.exports.enviar2F2 = function(app, req, res){
 	if(erros)
 	{
 		var err='Preencher Senha';
-		res.render('experimento2SE', {err: err, experimento2SE : envio2});
+		res.render('experimento2F2SE', {err: err, experimento2F2SE : envio2});
 		return;
 	}
 
@@ -403,37 +425,30 @@ module.exports.enviar2F2 = function(app, req, res){
 	senhaModel.enviar2(envio2, connection, function(error, result){
 		if(result){
 			if(result.length>0){
-				if(cont2<5){	
-				
-				if(cont2==1){
-				if(envio2.tempo<150){
-					res.render('experimento2FS80MIN15', {err: err, validacao: []});
+				if(cont2 == 2){
+				if(envio2.tempo>150){
+					res.render('experimento2FS30MAX15', {err: err, validacao: []});
+					console.log('chegou com contador2 = ');
+					console.log(cont2);
+
+				}
+			}
+				else{
+					if(envio2.tempo<150){
+						res.render('experimento2FS80MIN15', {err: err, validacao: []});
+						cont2 = cont2 + 1;
+					}
+					else
+					res.render('experimento2FS30MAX15', {err: err, validacao: []});
 					senhaModel.tempo(envio2, connection);
 					cont2 = cont2 + 1;
-				}
-				else{
-					cont2 = cont2 - 1;
-					res.render('experimento2FS50MAX15', {err: err, validacao: []});
-					console.log("deu certo!")
-				}
-				
-			}
-						
-			
-				
-			}
-			else{
-				senhaModel.tempo(envio2, connection);
-				var err='fim exp';
-				cont2 = 0;
-				res.render('telaFinal', {err: err, validacao: []});
-			}	
+					console.log(cont2)
+				}	
 		}
 		else{
 			var err='Senha Incorreta';
-			res.render('experimento2SE', {err: err, experimento2SE : envio2});
+			res.render('experimento2F2SE', {err: err, experimento2F2SE : envio2});
 		}
-	}
+		}
 	})	
 }
-
