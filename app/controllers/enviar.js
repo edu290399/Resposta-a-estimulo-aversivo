@@ -57,7 +57,7 @@ module.exports.enviar1 = function(app, req, res){
 
 	senhaModel.enviar1(envio1, connection, function(error, result){
 			if(result.length){
-				if(cont1<5){	
+				if(cont1<20){	
 				senhaModel.tempo(envio1, connection);
 				//senhaModel.pessoa(resultado,connection);
 				if(envio1.tempo<=150){
@@ -113,7 +113,7 @@ module.exports.enviar1F1 = function(app, req, res){
 
 	senhaModel.enviar1(envio1, connection, function(error, result){
 		if(result.length){
-			if(cont1<5){	
+			if(cont1<20){	
 				
 				//senhaModel.pessoa(resultado,connection);
 				if(cont1==2){
@@ -170,7 +170,7 @@ module.exports.enviar1F2 = function(app, req, res){
 
 	senhaModel.enviar1(envio1, connection, function(error, result){
 			if(result.length){
-				if(cont1<5){	
+				if(cont1<20){	
 	
 				//senhaModel.pessoa(resultado,connection);
 				if(cont1==0){
@@ -230,7 +230,7 @@ module.exports.enviar2 = function(app, req, res){
 	senhaModel.enviar2(envio2, connection, function(error, result){
 		if(result){
 			if(result.length>0){
-				if(cont2<5){	
+				if(cont2<20){	
 				senhaModel.tempo(envio2, connection);
 				if(envio2.tempo<150)
 				res.render('experimento2TE5', {err: err, validacao: []});
@@ -284,7 +284,7 @@ module.exports.enviar2S30 = function(app, req, res){
 	senhaModel.enviar2(envio2, connection, function(error, result){
 		if(result){
 			if(result.length>0){
-				if(cont2<5){	
+				if(cont2<20){	
 				senhaModel.tempo(envio2, connection);
 				if(envio2.tempo<150)
 				res.render('experimento2TE5', {err: err, validacao: []});
@@ -331,7 +331,7 @@ module.exports.enviar2S80 = function(app, req, res){
 	senhaModel.enviar2(envio2, connection, function(error, result){
 		if(result){
 			if(result.length>0){
-				if(cont2<5){	
+				if(cont2<20){	
 				senhaModel.tempo(envio2, connection);
 				if(envio2.tempo<150)
 				res.render('experimento2TE5', {err: err, validacao: []});
